@@ -1,0 +1,7 @@
+steps:
+- name: 'certbot/dns-google'
+  args: ['certonly', '--dns-google', '-d', 'vault.cloudevops.it', '--test-cert']
+artifacts:
+  objects:
+    location: 'gs://certificates-123/'
+    paths: ['/etc/letsencrypt/live/*']
