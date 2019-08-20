@@ -1,6 +1,14 @@
 steps:
 - name: 'certbot/dns-google'
-  args: ['certonly', '--dns-google', '--email', 'admin@cloudevops.it', '--agree-tos', '-n', '-d', 'vault.cloudevops.it', "--dns-google-propagation-seconds", "90", '--test-cert']
+  args: [
+    "certonly",
+    "--agree-tos", "-m", "admin@cloudevops.it",
+    "--non-interactive",
+    "--dns-google",
+    "--dns-google-propagation-seconds", "90",
+    "--domain", "vault.cloudevops.it",
+    "--test-cert"
+    ]
 artifacts:
   objects:
     location: 'gs://certificates-123/'
