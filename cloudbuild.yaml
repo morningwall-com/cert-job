@@ -2,11 +2,11 @@ steps:
 - name: 'certbot/dns-google'
   args: ["certonly",
     "--dns-google",
-    "-d", "vault.cloudevops.it",
     "--email", "admin@cloudevops.it",
     "--agree-tos", 
     "-n",
-    "--test-cert"
+    "--test-cert",
+    "-d", "vault.cloudevops.it"
     ]
 artifacts:
   objects:
