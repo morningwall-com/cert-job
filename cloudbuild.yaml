@@ -1,14 +1,11 @@
 steps:
-- name: 'certbot/dns-google'
-  args: ["certonly",
-    "--dns-google",
-    "--email", "admin@cloudevops.it",
-    "--agree-tos", 
-    "-n",
-    "--test-cert",
-    "-d", "vault.cloudevops.it"
-    ]
+  - name: 'gcr.io/${PROJECT_ID}/terraform'
+    args: ['init']
+  - name: 'gcr.io/${PROJECT_ID}/terraform'
+    args: ['plan', '-out=plan']
+  - name: 'gcr.io/${PROJECT_ID}/terraform'
+    args: ["apply", "plan"]
 artifacts:
   objects:
     location: 'gs://certificates-123/'
-    paths: ['/etc/letsencrypt/live/*']
+    paths: ['certificate.pem', 'private_key.pem']
