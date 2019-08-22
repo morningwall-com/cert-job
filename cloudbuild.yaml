@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/${PROJECT_ID}/terraform'
-    args: ['init', '-backend-config=''bucket=${_BACKEND_BUCKET}''', '-backend-config=''prefix=${_BACKEND_PREFIX}''']
+    args: ['init', "-backend-config='bucket=${_BACKEND_BUCKET}", "-backend-config='prefix=${_BACKEND_PREFIX}"]
   - name: 'gcr.io/${PROJECT_ID}/terraform'
     args:
       - 'plan'
