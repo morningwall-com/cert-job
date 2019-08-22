@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/${PROJECT_ID}/terraform'
     args: ['init', '-backend-config="bucket=${_BACKEND_BUCKET}"', '-backend-config="prefix=${_BACKEND_PREFIX}"']
   - name: 'gcr.io/${PROJECT_ID}/terraform'
-    args: ['plan', '-out=plan', '-var="cert_project=${_CERT_PROJECT}"', '-var="email=${_EMAIL}"', '-var="common_name=${_COMMON_NAME}"', '-var=\'subject_alternative_names["_SUBJECT_ALT_NAME"]\'']
+    args: ['plan', '-out=plan', '-var="cert_project=${_CERT_PROJECT}"', '-var="email=${_EMAIL}"', '-var="common_name=${_COMMON_NAME}"', '-var=subject_alternative_names["_SUBJECT_ALT_NAME"]']
   - name: 'gcr.io/${PROJECT_ID}/terraform'
     args: ["apply", "plan"]
 artifacts:
