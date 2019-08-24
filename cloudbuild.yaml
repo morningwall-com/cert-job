@@ -14,4 +14,4 @@ steps:
 artifacts:
   objects:
     location: 'gs://${_CERT_BUCKET}/'
-    paths: ['certificate.pem', 'private_key.pem']
+    paths: ['certificate.pem', 'private_key.pem', 'issuer.pem']
