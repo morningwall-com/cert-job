@@ -35,3 +35,8 @@ resource "local_file" "private_key_pem" {
     sensitive_content = "${acme_certificate.certificate.private_key_pem}"
     filename = "${path.module}/private_key.pem"
 }
+
+resource "local_file" "issuer_pem" {
+    sensitive_content = "${acme_certificate.certificate.issuer_pem}"
+    filename = "${path.module}/issuer.pem"
+}
